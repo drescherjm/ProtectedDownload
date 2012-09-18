@@ -9,10 +9,10 @@ namespace ProtectedDownload
     {
         public void ProcessRequest(HttpContext context)
         {
-//             context.Response.Redirect(context.Server.MapPath(
-//                 "./AccessDenied.aspx"));
+             context.Response.Redirect(context.Server.MapPath(
+                 "./AccessDenied.aspx"));
 
-            context.Response.Redirect("AccessDenied.aspx");
+            //context.Response.Redirect("AccessDenied.aspx");
         }
 
         public bool IsReusable

@@ -18,6 +18,10 @@ namespace ProtectedDownload
             if (IsAValidKey(id)) {
                 StartDownload(context, file);
             }
+            else
+            {
+                response.Write("The link you have used is either expired or is invalid.");
+            }
 
         }
 

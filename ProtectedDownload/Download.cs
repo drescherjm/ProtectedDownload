@@ -28,7 +28,11 @@ namespace ProtectedDownload
         
         private bool IsAValidKey(string key)
         {
-            return key.Contains("John");
+            bool retVal = !string.IsNullOrEmpty(key);
+            if (retVal) {
+                retVal =  key.Contains("John");
+            }
+            return retVal;
         }
 
         private void StartDownload(System.Web.HttpContext context, string dowloadFile ) 
@@ -40,7 +44,9 @@ namespace ProtectedDownload
 
             context.Response.ContentType = "application/zip";
 
-            context.Response.WriteFile(context.Server.MapPath("./Files/" + dowloadFile));
+            string path = context.Server.MapPath("./Files/" + dowloadFile);
+
+            context.Response.WriteFile(path);
 
         }
     }

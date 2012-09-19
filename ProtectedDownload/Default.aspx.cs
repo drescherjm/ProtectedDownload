@@ -13,5 +13,18 @@ namespace ProtectedDownload
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string email = TextBox1.Text;
+
+            if (!string.IsNullOrEmpty(email)) {
+
+                string encode = DownloadToken.generate(email);
+                Response.Write("Encoded ID= " + encode);
+
+                Response.Write("Decoded " + DownloadToken.decode(encode));
+            }
+        }
     }
 }

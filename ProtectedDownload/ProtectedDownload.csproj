@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -79,7 +80,9 @@
     <Compile Include="Download.cs" />
     <Compile Include="DownloadToken.cs" />
     <Compile Include="FileDenialHandler.cs" />
+    <Compile Include="HexEncoding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SymmetricEncryptionUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

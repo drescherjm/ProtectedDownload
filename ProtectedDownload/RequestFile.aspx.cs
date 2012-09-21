@@ -33,6 +33,14 @@ namespace ProtectedDownload
             string strDownloadToken = DownloadToken.generate(TextBoxEmail.Text);
 
             int nUserID = db.InsertUser(new UserDetails(0, TextBoxFName.Text, TextBoxLName.Text, TextBoxEmail.Text));
+
+            sendEmail(nUserID, TextBoxEmail.Text, strDownloadToken);
+            
+        }
+
+        protected void sendEmail(int nUserID, string strEmail, string strToken)
+        {
+            Response.Write("UserID= " + nUserID + "<br>Email= " + strEmail + "<br>Token= " + strToken);
         }
     }
 }

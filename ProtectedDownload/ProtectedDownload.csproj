@@ -95,6 +95,8 @@
       <DependentUpon>RequestFile.aspx</DependentUpon>
     </Compile>
     <Compile Include="SymmetricEncryptionUtility.cs" />
+    <Compile Include="UserDetails.cs" />
+    <Compile Include="UsersDB.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Files\" />

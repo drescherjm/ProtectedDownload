@@ -14,11 +14,21 @@ namespace ProtectedDownload
 
         }
 
+        protected bool canSubmit()
+        {
+            return regexEmailValid.IsValid && RequiredFieldValidator1.IsValid && RequiredFieldValidator2.IsValid && RequiredFieldValidator3.IsValid;
+        }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if(regexEmailValid.IsValid) {
-                
+            if(canSubmit()) {
+                submit();  
             }
+        }
+
+        protected void submit()
+        {
+            string strDownloadToken = DownloadToken.generate(TextBoxEmail.Text);
         }
     }
 }

@@ -9,6 +9,8 @@ namespace ProtectedDownload
 {
     public partial class RequestFile : System.Web.UI.Page
     {
+        private UsersDB db = new UsersDB();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -29,6 +31,8 @@ namespace ProtectedDownload
         protected void submit()
         {
             string strDownloadToken = DownloadToken.generate(TextBoxEmail.Text);
+
+            int nUserID = db.InsertUser(new UserDetails(0, TextBoxFName.Text, TextBoxLName.Text, TextBoxEmail.Text));
         }
     }
 }

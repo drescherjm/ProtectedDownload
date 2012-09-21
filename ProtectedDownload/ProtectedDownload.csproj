@@ -87,6 +87,7 @@
     <Compile Include="FileDenialHandler.cs" />
     <Compile Include="HexEncoding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestDetails.cs" />
     <Compile Include="RequestFile.aspx.cs">
       <DependentUpon>RequestFile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -94,6 +95,7 @@
     <Compile Include="RequestFile.aspx.designer.cs">
       <DependentUpon>RequestFile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RequestTable.cs" />
     <Compile Include="SymmetricEncryptionUtility.cs" />
     <Compile Include="UserDetails.cs" />
     <Compile Include="UsersDB.cs" />

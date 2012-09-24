@@ -6,3 +6,4 @@ obj
 TestResults
 /*.suo
 /ProtectedDownload/App_Data/*.LDF
+/MailSettings.config

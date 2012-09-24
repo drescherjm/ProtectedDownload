@@ -34,7 +34,14 @@ namespace ProtectedDownload
         {
             bool retVal = !string.IsNullOrEmpty(key);
             if (retVal) {
-                retVal =  key.Contains("John");
+
+                RequestTable table = new RequestTable();
+
+                table.ExpireOldRequests();
+
+                int nUserID = table.GetValidRequest(key);
+
+                retVal = (nUserID >= 0);
             }
             return retVal;
         }

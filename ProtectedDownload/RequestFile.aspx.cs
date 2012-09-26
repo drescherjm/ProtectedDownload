@@ -143,6 +143,9 @@ namespace ProtectedDownload
 
             smtpclient.Send(msgeme);
 
+            var response = base.Response;
+            response.Redirect("./DownloadEmailSent.aspx");
+
         }
     }
 }

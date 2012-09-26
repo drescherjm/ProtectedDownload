@@ -57,6 +57,7 @@
       <DependentUpon>Data.mdf</DependentUpon>
     </Content>
     <Content Include="Default.aspx" />
+    <Content Include="DownloadEmailSent.aspx" />
     <Content Include="RequestFile.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -82,6 +83,13 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Download.cs" />
+    <Compile Include="DownloadEmailSent.aspx.cs">
+      <DependentUpon>DownloadEmailSent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DownloadEmailSent.aspx.designer.cs">
+      <DependentUpon>DownloadEmailSent.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DownloadToken.cs" />
     <Compile Include="FileDenialHandler.cs" />
     <Compile Include="HexEncoding.cs" />

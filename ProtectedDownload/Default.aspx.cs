@@ -20,10 +20,12 @@ namespace ProtectedDownload
 
             if (!string.IsNullOrEmpty(email)) {
 
-                string encode = DownloadToken.generate(email);
-                Response.Write("Encoded ID= " + encode);
+//                 string encode = DownloadToken.generate(email);
+//                 Response.Write("Encoded ID= " + encode);
+// 
+//                 Response.Write("Decoded " + DownloadToken.decode(encode));
 
-                Response.Write("Decoded " + DownloadToken.decode(encode));
+                Response.Redirect(Server.MapPath("./RequestFile.aspx"));
             }
         }
     }

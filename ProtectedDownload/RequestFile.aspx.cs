@@ -122,7 +122,7 @@ namespace ProtectedDownload
 
         protected void sendEmail(int nUserID, string strEmail, string strToken)
         {
-            Response.Write("UserID= " + nUserID + "<br>Email= " + strEmail + "<br>Token= " + strToken);
+            //Response.Write("UserID= " + nUserID + "<br>Email= " + strEmail + "<br>Token= " + strToken);
 
             RequestTable table = new RequestTable();
 

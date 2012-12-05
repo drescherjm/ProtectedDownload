@@ -8,6 +8,9 @@
 <body>
     <form id="form1" runat="server">
     <div>
+        <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/Pitt-Logo.gif" />
+        <br />
+        <br />
         <asp:Label ID="Label1" runat="server" Text="Please enter your contact information so we can send you a download link."></asp:Label>
         <br />
         <br />

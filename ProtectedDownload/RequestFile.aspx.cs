@@ -130,9 +130,11 @@ namespace ProtectedDownload
 
             string strURL = ResolveServerUrl("/download",false);
 
-            string strMsg = "<body> " + strURL + "?&file=test.zip&id=" +strToken + "</body>";
+            string strLogoURL = ResolveServerUrl("/Images/Pitt-Logo.gif", false);
 
-            MailMessage msgeme = new MailMessage("drescherjm@gmail.com", strEmail, "Download Link", strMsg);
+            string strMsg = "<body> <img src=\"" + strLogoURL + "\" /> <br> We have recieved your request to download our software package. The following is a link containing the software you requested. <br>" + strURL + "?&file=test.zip&id=" + strToken + " </body>";
+
+            MailMessage msgeme = new MailMessage("\"John M. Drescher\" <jdresch@pitt.edu>", strEmail, "My Statistics Software Download Link", strMsg);
             msgeme.IsBodyHtml = true;
 
             //SmtpClient smtpclient = new SmtpClient("in.mailjet.com", 587);

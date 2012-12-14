@@ -8,3 +8,4 @@ TestResults
 /ProtectedDownload/App_Data/*.LDF
 /MailSettings.config
 MailSettings.config
+/ProtectedDownload/DBSettings.config

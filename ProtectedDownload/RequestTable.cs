@@ -95,8 +95,6 @@ namespace ProtectedDownload
                 con.Open();
                 cmd.ExecuteNonQuery();
                 retVal = (int)cmd.Parameters["@UserID"].Value;
-               
-                //Int32.TryParse(cmd.Parameters["@UserID"].Value.ToString(), out retVal);
                 
             }
             catch (SqlException err)

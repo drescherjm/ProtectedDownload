@@ -37,6 +37,8 @@ namespace ProtectedDownload
 
             int nUserID = db.InsertUser(new UserDetails(0, TextBoxFName.Text, TextBoxLName.Text, TextBoxEmail.Text));
 
+            int nDownload = Convert.ToInt32(DropDownList1.SelectedValue);
+
             sendEmail(nUserID, TextBoxEmail.Text, strDownloadToken);
             
         }

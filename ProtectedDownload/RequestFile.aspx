@@ -14,7 +14,7 @@
         <asp:Label ID="Label1" runat="server" Text="Please  select the file you want to download and enter your contact information so we can send you a download link."></asp:Label>
         <br />
         <br />
-        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Description" DataValueField="FileName" Height="17px" Width="300px">
+        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Description" DataValueField="ID" Height="17px" Width="300px">
         </asp:DropDownList>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:rocConnectionString %>" SelectCommand="SELECT DISTINCT Description, FileName, ID FROM FileList ORDER BY ID"></asp:SqlDataSource>
         <br />

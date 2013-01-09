@@ -10,11 +10,10 @@
     <form id="form1" runat="server">
     <div>
     
-        <asp:Button ID="Button1" runat="server" onclick="Button1_Click" 
-            Text="Download" />
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        Here we will have to have some content describing the group and the purpose of the downloads.<br />
     
     </div>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/RequestFile.aspx">Download Our Software</asp:HyperLink>
     </form>
 </body>
 </html>

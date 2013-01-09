@@ -123,6 +123,8 @@
     <Content Include="DBSettings.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Files\Test1.zip" />
+    <Content Include="Files\download2.zip" />
     <None Include="Properties\PublishProfiles\7Host.pubxml" />
     <None Include="Properties\PublishProfiles\Pitt EWI.pubxml" />
     <None Include="Properties\PublishProfiles\Profile1.pubxml" />

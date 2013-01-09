@@ -55,5 +55,73 @@ namespace ProtectedDownload
 				con.Close();			
 			}
 		}
+
+        public void MarkUserEmailVerifyied(int nUser)
+        {
+
+            string queryString = "UPDATE Users SET AccountVerified=1 WHERE ID=" + nUser;
+
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(queryString, con);
+            cmd.CommandType = CommandType.Text;
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException err)
+            {
+                // Replace the error with something less specific.
+                // You could also log the error now.
+                throw new ApplicationException("Data error." + err.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        /// <summary>
+        /// This member returns true if the email address of the user has been verified 
+        /// by using a download link that was sent by email.
+        /// </summary>
+        /// <param name="nUser"></param>
+        /// <returns></returns>
+
+        public bool HasUserVerifiedEmail(int nUser)
+        {
+
+            bool retVal = false;
+
+            string queryString = "Select * From Users WHERE AccountVerified=1 AND ID=" + nUser;
+
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(queryString, con);
+            DataTable dt = new DataTable();
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter ad = new SqlDataAdapter(cmd);
+                ad.Fill(dt);
+
+                retVal = (dt.Rows.Count > 0);
+
+            }
+            catch (SqlException err)
+            {
+                // Replace the error with something less specific.
+                // You could also log the error now.
+                throw new ApplicationException("Data error." + err.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return retVal;
+        }
     }
 }

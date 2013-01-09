@@ -103,6 +103,7 @@
     <Compile Include="DownloadToken.cs" />
     <Compile Include="FileDenialHandler.cs" />
     <Compile Include="FileListDetails.cs" />
+    <Compile Include="FileListTable.cs" />
     <Compile Include="HexEncoding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestDetails.cs" />

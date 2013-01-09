@@ -27,8 +27,7 @@ namespace ProtectedDownload
 			set {description = value;}
 		}
 		
-		public FileListDetails(int fileID, string fileName, string description, 
-            string emailAddress)
+		public FileListDetails(int fileID, string fileName, string description)
 		{
 			this.fileID = fileID;
 			this.fileName = fileName;

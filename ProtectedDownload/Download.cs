@@ -42,6 +42,13 @@ namespace ProtectedDownload
                 int nUserID = table.GetValidRequest(key);
 
                 retVal = (nUserID >= 0);
+
+                if (retVal) {
+                    UsersDB db = new UsersDB();
+
+                    db.MarkUserEmailVerifyied(nUserID);
+                }
+
             }
             return retVal;
         }

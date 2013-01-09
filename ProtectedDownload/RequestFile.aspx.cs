@@ -31,6 +31,13 @@ namespace ProtectedDownload
             }
         }
 
+        protected FileListDetails GetFileDetails(int nDownloadID)
+        {
+            FileListTable table = new FileListTable();
+
+            return table.GetFileDetails(nDownloadID);
+        }
+
         protected void submit()
         {
             string strDownloadToken = DownloadToken.generate(TextBoxEmail.Text);
@@ -39,7 +46,8 @@ namespace ProtectedDownload
 
             int nDownload = Convert.ToInt32(DropDownList1.SelectedValue);
 
-            sendEmail(nUserID, TextBoxEmail.Text, strDownloadToken);
+
+            sendEmail(nUserID, TextBoxEmail.Text, strDownloadToken,GetFileDetails(nDownload));
             
         }
 
@@ -122,7 +130,7 @@ namespace ProtectedDownload
 
         } 
 
-        protected void sendEmail(int nUserID, string strEmail, string strToken)
+        protected void sendEmail(int nUserID, string strEmail, string strToken, FileListDetails fld)
         {
             //Response.Write("UserID= " + nUserID + "<br>Email= " + strEmail + "<br>Token= " + strToken);
 
@@ -134,8 +142,10 @@ namespace ProtectedDownload
 
             string strLogoURL = ResolveServerUrl("/Images/Pitt-Logo.gif", false);
 
+            string strDownloadLink = strURL + "?&file=" + fld.FileName +  "&id=" + strToken;
+
             string strMsg = "<body> <img src=\"" + strLogoURL + "\" /> <br> We have recieved your request to download our software package. " +
-            "The following is a link containing the software you requested: <br>" + strURL + "?&file=test.zip&id=" + strToken + " </body>";
+            "The following is a link containing the software you requested: <br>" + strDownloadLink + " </body>";
 
             MailMessage msgeme = new MailMessage("\"John M. Drescher\" <jdresch@pitt.edu>", strEmail, "My Statistics Software Download Link", strMsg);
             msgeme.IsBodyHtml = true;
@@ -148,8 +158,18 @@ namespace ProtectedDownload
 
             smtpclient.Send(msgeme);
 
+            // Now we should check if the email address has been verified and if so redirect to that instead of the Email Sent page.
+
             var response = base.Response;
-            response.Redirect("./DownloadEmailSent.aspx");
+
+            if (!db.HasUserVerifiedEmail(nUserID))
+            {
+                response.Redirect("./DownloadEmailSent.aspx");
+            }
+            else
+            {
+                response.Redirect(strDownloadLink);
+            }
 
         }
     }

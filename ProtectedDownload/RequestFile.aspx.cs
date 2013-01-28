@@ -147,16 +147,35 @@ namespace ProtectedDownload
             string strMsg = "<body> <img src=\"" + strLogoURL + "\" /> <br> We have recieved your request to download our software package. " +
             "The following is a link containing the software you requested: <br>" + strDownloadLink + " </body>";
 
-            MailMessage msgeme = new MailMessage("\"John M. Drescher\" <jdresch@pitt.edu>", strEmail, "My Statistics Software Download Link", strMsg);
+            MailMessage msgeme = new MailMessage("rocmail@pitt.edu", strEmail, "My Statistics Software Download Link", strMsg);
             msgeme.IsBodyHtml = true;
 
             //SmtpClient smtpclient = new SmtpClient("in.mailjet.com", 587);
-            SmtpClient smtpclient = new SmtpClient();
+            SmtpClient smtpclient = new SmtpClient("smtp.pitt.edu",25);
+            smtpclient.UseDefaultCredentials = false;
             smtpclient.EnableSsl = true;
-            //smtpclient.Credentials = new NetworkCredential("secret", "secret");
-            //smtpclient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            //smtpclient.Credentials = new NetworkCredential("rocmail", "##password");
+            smtpclient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        
+            //smtpclient.Port = 587;
+            //smtpclient.Host = "smtp.pitt.edu";
 
             smtpclient.Send(msgeme);
+
+            //try
+            //{
+            //    smtpclient.Send(msgeme);
+            //}
+            //catch (Exception ex)
+            //{
+
+
+            //    String message = ex.Message;
+
+            //    Response.Write("<script language='javascript'>alert('" +
+            //        Server.HtmlEncode(message) + "')</script>");    
+            //}
+
 
             // Now we should check if the email address has been verified and if so redirect to that instead of the Email Sent page.
 
